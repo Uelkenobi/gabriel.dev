@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Mattes Lopes · Portfólio</title>
+  <meta name="description" content="Portfólio de Gabriel Mattes Lopes – Analista de Dados e Automação de Processos.">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background 3D SPLINE -->
+  <div class="spline-background">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/pEwDsGV7LaMiW-jS/scene.splinecode"></spline-viewer>
+  </div>
+
+  <!-- Header / Navegação -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#top" class="logo">gabriel.dev</a>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#skills">Skills</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema"></button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="card reveal">
+      <img src="img/FotoPerfilProfissional.png" alt="Foto de Gabriel Mattes Lopes" class="profile-pic">
+      <h1>Gabriel Mattes Lopes</h1>
+      <p class="subtitle">Analista de Dados · Automação de Processos</p>
+      <p>
+        Formado em Análise e Desenvolvimento de Sistemas e cursando pós-graduação em Engenharia da Computação,
+        com experiência adquirida no estágio atual, desenvolvendo habilidades em análise de dados,
+        automação de processos e desenvolvimento web.
+      </p>
+    </section>
+
+    <!-- Seção Experiência -->
+    <section id="experiencia" class="card reveal">
+      <h2>Experiência</h2>
+
+      <!-- Experiência O.S Inteligência Financeira -->
+      <div class="exp-item">
+        <h3>O.S Inteligência Financeira</h3>
+        <p>Estagiário/Analista de Dados — Mai/2025 – Atual</p>
+        <ul class="experience-list">
+          <li><p>Desenvolvimento e automação de processos internos, incluindo assinatura digital e download automatizado de protestos, reduzindo o tempo de execução manual em até 80%.</p></li>
+          <li><p>Extração, limpeza e análise de dados utilizando Python, Excel avançado e QProf para geração de relatórios gerenciais precisos.</p></li>
+          <li><p>Integração de APIs e scripts de automação para captação de informações de empresas via CNPJ, otimizando a coleta de dados estratégicos.</p></li>
+          <li><p>Criação de dashboards e visualizações de dados para apoiar decisões da equipe financeira e operacional.</p></li>
+          <li><p>Documentação e padronização de processos automatizados para garantir consistência e escalabilidade das rotinas.</p></li>
+        </ul>
+      </div>
+
+      <!-- Experiência Condor Super Center -->
+      <div class="exp-item">
+        <h3>Condor Super Center</h3>
+        <p>Açougueiro / Auxiliar — Ago/2021 – Mai/2024</p>
+        <ul class="experience-list">
+          <li><p>Atendimento, controle de estoque e preparo de produtos.</p></li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projetos" class="card reveal">
+      <h2>Projetos</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Automação de Assinatura Digital</h3>
+          <p>Automatiza processos de assinatura digital usando Python e Selenium.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Download Automático de Protestos</h3>
+          <p>Script que realiza login, consulta e baixa PDFs de protestos automaticamente.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Captação de Contatos via CNPJ</h3>
+          <p>Programa que extrai e organiza e-mails e telefones de empresas a partir do CNPJ.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Skills -->
+    <section id="skills" class="card reveal">
+      <h2>Skills</h2>
+      <p>Linguagens: Python, HTML, CSS, JavaScript, PHP, Java</p>
+      <p>Ferramentas: Excel Avançado, QProf, Selenium, Git/GitHub</p>
+    </section>
+
+    <!-- Seção Formação -->
+    <section id="formacao" class="card reveal">
+      <h2>Formação</h2>
+      <p>Pós-Graduação em Engenharia da Computação — Em andamento (2025)</p>
+      <p>Tecnólogo em Análise e Desenvolvimento de Sistemas — UNINTER (2023–2025)</p>
+    </section>
+
+    <!-- Seção Contato / Formulário -->
+    <section id="contato" class="card reveal">
+      <h2>Contato</h2>
+      <p>Email: <a href="mailto:gabrielmatteslopes@gmail.com">gabrielmatteslopes@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/gabriel-mattes-lopes-9ba547205">/gabriel-mattes-lopes-9ba547205</a></p>
+      <p>WhatsApp: <a href="https://wa.me/5541984639788">Enviar mensagem</a></p>
+
+      <h3>Enviar Mensagem</h3>
+      <form class="contact-form" action="mailto:gabrielmatteslopes@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu email" required>
+        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Gabriel Mattes Lopes · Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="theme.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
