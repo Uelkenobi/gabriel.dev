@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Mattes Lopes · Portfólio</title>
   <meta name="description" content="Analista de Dados e Automação | Python | RPA | Integração de APIs">
-
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="container header-content">
       <a href="#top" class="logo">gabriel.dev</a>
@@ -20,117 +23,101 @@
         <a href="#skills">Skills</a>
         <a href="#experiencia">Experiência</a>
         <a href="#contato">Contato</a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Mudar tema">🌙</button>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
 
-    <!-- HERO SECTION -->
     <section class="hero">
       <div class="container hero-content">
         <h1>Transformando processos manuais em soluções automatizadas inteligentes</h1>
-        <p>
-          Analista de Dados & Automação | Python | RPA | Integração de APIs | Dashboards Estratégicos
-        </p>
+        <p>Analista de Dados & Automação | Python | RPA | Integração de APIs | Dashboards Estratégicos</p>
         <div class="hero-buttons">
-          <a href="#projetos" class="btn-primary">Ver Projetos</a>
-          <a href="#contato" class="btn-secondary">Entrar em Contato</a>
-          <a href="cv_gabriel_mattes_lopes.pdf" download class="btn-cv">Baixar Currículo</a>
+          <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+          <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+          <a href="cv_gabriel_mattes_lopes.pdf" download class="btn btn-outline">Baixar Currículo</a>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE -->
     <section id="sobre" class="section container">
-      <h2>Sobre Mim</h2>
-      <p>
-        Profissional formado em Análise e Desenvolvimento de Sistemas e pós-graduando em Engenharia da Computação.
-        Especializado em automação de processos e análise de dados com foco em eficiência operacional,
-        redução de erros e geração de valor estratégico.
-      </p>
-      <p>
-        Experiência prática no desenvolvimento de soluções automatizadas utilizando Python,
-        integração de APIs e criação de dashboards para apoio à tomada de decisão.
-      </p>
+      <h2 class="section-title">Sobre Mim</h2>
+      <div class="card text-card">
+        <p>
+          Profissional formado em Análise e Desenvolvimento de Sistemas e pós-graduando em Engenharia da Computação.
+          Especializado em automação de processos e análise de dados com foco em eficiência operacional,
+          redução de erros e geração de valor estratégico.
+        </p>
+        <p>
+          Experiência prática no desenvolvimento de soluções automatizadas utilizando Python,
+          integração de APIs e criação de dashboards para apoio à tomada de decisão.
+        </p>
+      </div>
     </section>
 
-    <!-- MÉTRICAS -->
     <section class="stats">
       <div class="container stats-grid">
-        <div class="stat">
+        <div class="stat-card">
           <h2>80%</h2>
           <p>Redução de tempo em processos manuais</p>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <h2>+10</h2>
           <p>Processos automatizados</p>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <h2>100%</h2>
           <p>Processos documentados e escaláveis</p>
         </div>
       </div>
     </section>
 
-    <!-- PROJETOS -->
     <section id="projetos" class="section container">
-      <h2>Projetos</h2>
-
+      <h2 class="section-title">Projetos</h2>
       <div class="projects-grid">
-
-        <div class="project-card">
+        <div class="project-card card">
           <h3>Automação de Assinatura Digital</h3>
-          <p>
-            Sistema automatizado com Python e Selenium para execução de assinaturas digitais
-            eliminando tarefas repetitivas.
-          </p>
-          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+          <p>Sistema automatizado com Python e Selenium para execução de assinaturas digitais eliminando tarefas repetitivas.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank" class="link-btn">Ver no GitHub ➔</a>
         </div>
-
-        <div class="project-card">
+        <div class="project-card card">
           <h3>Download Automático de Protestos</h3>
-          <p>
-            Script de automação para login, consulta e download de documentos,
-            reduzindo drasticamente o tempo operacional.
-          </p>
-          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+          <p>Script de automação para login, consulta e download de documentos, reduzindo drasticamente o tempo operacional.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank" class="link-btn">Ver no GitHub ➔</a>
         </div>
-
-        <div class="project-card">
+        <div class="project-card card">
           <h3>Captação de Contatos via CNPJ</h3>
-          <p>
-            Integração com APIs para extração e organização automatizada
-            de dados empresariais estratégicos.
-          </p>
-          <a href="https://github.com/Uelkenobi" target="_blank">Ver no GitHub</a>
+          <p>Integração com APIs para extração e organização automatizada de dados empresariais estratégicos.</p>
+          <a href="https://github.com/Uelkenobi" target="_blank" class="link-btn">Ver no GitHub ➔</a>
         </div>
-
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section container">
-      <h2>Skills</h2>
+      <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
-        <div class="skill-card">Python</div>
-        <div class="skill-card">RPA</div>
-        <div class="skill-card">Selenium</div>
-        <div class="skill-card">Integração de APIs</div>
-        <div class="skill-card">Excel Avançado</div>
-        <div class="skill-card">Dashboards</div>
-        <div class="skill-card">HTML & CSS</div>
-        <div class="skill-card">Git & GitHub</div>
+        <div class="skill-tag">Python</div>
+        <div class="skill-tag">RPA</div>
+        <div class="skill-tag">Selenium</div>
+        <div class="skill-tag">Integração de APIs</div>
+        <div class="skill-tag">Excel Avançado</div>
+        <div class="skill-tag">Dashboards</div>
+        <div class="skill-tag">HTML & CSS</div>
+        <div class="skill-tag">Git & GitHub</div>
       </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
     <section id="experiencia" class="section container">
-      <h2>Experiência</h2>
-
-      <div class="exp-item">
-        <h3>O.S Inteligência Financeira</h3>
-        <p><strong>Estagiário / Analista de Dados — Mai/2025 – Atual</strong></p>
+      <h2 class="section-title">Experiência</h2>
+      
+      <div class="exp-item card">
+        <div class="exp-header">
+          <h3>O.S Inteligência Financeira</h3>
+          <span class="exp-date">Mai/2025 – Atual</span>
+        </div>
+        <p class="exp-role">Estagiário / Analista de Dados</p>
         <ul>
           <li>Automatização de processos internos críticos reduzindo em até 80% o tempo operacional.</li>
           <li>Extração, limpeza e análise de dados com Python e Excel avançado.</li>
@@ -140,34 +127,33 @@
         </ul>
       </div>
 
-      <div class="exp-item">
-        <h3>Condor Super Center</h3>
-        <p><strong>Açougueiro / Auxiliar — Ago/2021 – Mai/2024</strong></p>
+      <div class="exp-item card">
+        <div class="exp-header">
+          <h3>Condor Super Center</h3>
+          <span class="exp-date">Ago/2021 – Mai/2024</span>
+        </div>
+        <p class="exp-role">Açougueiro / Auxiliar</p>
         <ul>
           <li>Atendimento ao cliente, controle de estoque e organização operacional.</li>
         </ul>
       </div>
-
     </section>
 
-    <!-- CONTATO -->
     <section id="contato" class="section container">
-      <h2>Contato</h2>
-      <p>Email: <a href="mailto:gabrielmatteslopes@gmail.com">gabrielmatteslopes@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/gabriel-mattes-lopes-9ba547205" target="_blank">Acessar Perfil</a></p>
-      <p>WhatsApp: <a href="https://wa.me/5541984639788" target="_blank">Enviar mensagem</a></p>
+      <h2 class="section-title">Contato</h2>
+      <div class="contact-links card">
+        <p>📧 Email: <a href="mailto:gabrielmatteslopes@gmail.com">gabrielmatteslopes@gmail.com</a></p>
+        <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/gabriel-mattes-lopes-9ba547205" target="_blank">Acessar Perfil</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/5541984639788" target="_blank">Enviar mensagem</a></p>
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>© <span id="year"></span> Gabriel Mattes Lopes · Todos os direitos reservados</p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
