@@ -1,0 +1,533 @@
+/* =========================================
+   1. Variáveis, Fontes e Reset Base
+   ========================================= */
+:root {
+    /* Cores Modo Escuro (Cyber-Punk-Rock) */
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --acc-color: #00ff41; /* Verde Matrix */
+    --acc-hover: #ff0055; /* Rosa Cyberpunk */
+    --paper-color: #2a2a2a;
+    --postit-color: #f1c40f;
+    --postit-text: #2c3e50;
+    --shadow: 5px 5px 0px rgba(0,0,0,0.7);
+    --grunge-opacity: 0.05;
+    
+    /* Fontes */
+    --font-main: 'Special Elite', cursive; /* Jornal/Máquina */
+    --font-heading: 'Anton', sans-serif; /* Manchete */
+    --font-mono: 'Fira Code', monospace; /* Terminal */
+    
+    --transition: all 0.2s ease-in-out;
+}
+
+[data-theme="light"] {
+    /* Cores Modo Claro (Jornal Velho/Sepia) */
+    --bg-color: #f4f1ea;
+    --text-color: #1a1a1a;
+    --acc-color: #e74c3c; /* Vermelho Tinta */
+    --acc-hover: #2980b9;
+    --paper-color: #ffffff;
+    --postit-color: #ffeb3b;
+    --shadow: 5px 5px 0px rgba(0,0,0,0.1);
+    --grunge-opacity: 0.1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: crosshair; /* Cursor nerd */
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Efeito de Ruído de Fundo (CSS puro) */
+.noise-bg::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3%3FfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: var(--grunge-opacity);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Scanlines de TV velha */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* helpers */
+.highlight { color: var(--acc-color); font-weight: bold; }
+.highlight-bg { background-color: var(--acc-color) !important; color: var(--bg-color) !important; }
+.fira-code { font-family: var(--font-mono); }
+.special-elite { font-family: var(--font-main); }
+.faint-text { opacity: 0.5; font-size: 0.8rem; }
+
+/* =========================================
+   2. Estilos de Colagem (O Pulo do Gato)
+   ========================================= */
+
+/* Classe base para itens da colagem */
+.collage-item {
+    background-color: var(--paper-color);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    position: relative;
+    transition: var(--transition);
+    margin-bottom: 20px;
+}
+
+/* Hover Global para TUDO que for collage-item */
+.collage-item:hover {
+    transform: scale(1.02) rotate(0deg) !important; /* Fica reto e cresce */
+    box-shadow: 10px 10px 0px var(--acc-color);
+    z-index: 10;
+    border-color: var(--acc-color);
+}
+
+/* Efeito de Grunge/Sujeira dentro dos cards */
+.card-grunge {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZ6VFw0V... (textura muito longa, use uma imagem de grunge se quiser, ou deixe vazio)');
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+
+/* Efeito Post-it */
+.post-it {
+    background-color: var(--postit-color);
+    color: var(--postit-text);
+    font-family: var(--font-main);
+    transform: rotate(-2deg);
+}
+.post-it .section-title { color: var(--postit-text); border-color: var(--postit-text); }
+
+.post-it-blue {
+    background-color: #3498db;
+    color: white;
+    transform: rotate(1deg);
+}
+
+/* Efeito Recorte de Jornal */
+.newspaper-snippet {
+    border-style: dashed;
+    border-width: 2px;
+    transform: rotate(1.5deg);
+}
+
+/* Efeito Foto Antiga */
+.photo-frame {
+    border: 10px solid white;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    transform: rotate(-1deg);
+}
+
+/* Efeito Fita Adesiva (Tape) */
+.tape-effect::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255, 255, 200, 0.5); /* Fita crepe semi-transparente */
+    border-left: 3px dotted rgba(0,0,0,0.1);
+    border-right: 3px dotted rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Rotações Aleatórias para quebrar a grade */
+.tilt-left { transform: rotate(-3deg); }
+.tilt-right { transform: rotate(3deg); }
+
+/* =========================================
+   3. Header e Navegação
+   ========================================= */
+.header {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    transform: rotate(-0.5deg);
+    background-color: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    border: 2px dashed var(--acc-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: var(--font-mono);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    background-color: var(--acc-color);
+    color: var(--bg-color);
+    transform: skewX(-10deg);
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+.theme-btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+}
+
+/* =========================================
+   4. Botões
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: var(--font-mono);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: var(--transition);
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0 var(--acc-hover);
+}
+
+.btn:active { transform: translate(0, 0); box-shadow: none;}
+
+.btn-primary {
+    background-color: var(--acc-color);
+    color: var(--bg-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--acc-hover);
+    color: var(--acc-hover);
+}
+
+.btn-outline {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+/* =========================================
+   5. Hero Section
+   ========================================= */
+.hero {
+    margin-top: 40px;
+    padding: 60px 40px;
+    text-align: center;
+    border-radius: 0;
+}
+
+.terminal-text {
+    font-family: var(--font-mono);
+    color: var(--acc-color);
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+.hero-buttons { margin-top: 30px; }
+
+/* =========================================
+   6. Seções Gerais e Cards
+   ========================================= */
+.section { padding: 60px 0; }
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    border-bottom: 3px solid var(--acc-color);
+    display: inline-block;
+}
+
+.text-card p { margin-bottom: 15px; }
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--paper-color);
+    border: 2px solid var(--text-color);
+}
+.stat-card h2 { font-family: var(--font-heading); font-size: 3rem; color: var(--acc-color); }
+
+.highlight-bg h2 { color: var(--bg-color) !important; }
+
+/* Projetos - Mesa de Colagem */
+.projetos-section {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+.project-tag {
+    position: absolute;
+    top: 10px; right: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 2px 5px;
+}
+
+.project-card h3 { font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 10px; margin-top: 15px;}
+.project-card p { flex-grow: 1; font-size: 0.9rem; margin-bottom: 15px;}
+
+.link-btn {
+    font-family: var(--font-mono);
+    color: var(--acc-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+}
+.link-btn:hover { color: var(--acc-hover); letter-spacing: 1px; }
+
+/* Destaques específicos de projetos */
+.jarvis-card { border-color: cyan !important; color: cyan; background-color: #001a1a; }
+.jarvis-card:hover { box-shadow: 10px 10px 0 cyan; }
+.rastreio-card { border-color: orange !important; }
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: #333;
+    color: var(--acc-color);
+    padding: 8px 15px;
+    border: 1px solid #444;
+    transition: var(--transition);
+}
+.skill-tag:hover {
+    background-color: var(--acc-color);
+    color: var(--bg-color);
+    transform: scale(1.1) rotate((5deg));
+}
+
+/* Experiência */
+.exp-item { margin-bottom: 40px; padding: 30px;}
+.exp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 5px;}
+.exp-date { opacity: 0.7; font-size: 0.9rem;}
+.exp-role { color: var(--acc-color); margin-bottom: 15px; font-weight: bold;}
+.exp-item ul { list-style-type: ">> "; margin-left: 20px;}
+.exp-item li { margin-bottom: 5px; font-size: 0.9rem;}
+
+/* =========================================
+   7. Sistema de Mensagem Anônima e Contato
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Card estilo Terminal */
+.terminal-card {
+    background-color: #000;
+    color: #fff;
+    font-family: var(--font-mono);
+    border: 2px solid #333;
+    padding: 0; /* padding vai pro body */
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #333;
+    color: #aaa;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-bottom: 2px solid #333;
+}
+
+.terminal-card .section-title, 
+.terminal-card .anon-form,
+.terminal-card p {
+    padding: 20px;
+}
+
+.terminal-card .section-title { border: none; margin-bottom: 10px;}
+
+.anon-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 0 !important;
+}
+
+.anon-form input,
+.anon-form textarea {
+    background-color: #111;
+    border: 1px solid #acc-color;
+    color: var(--acc-color);
+    padding: 10px;
+    font-family: var(--font-mono);
+}
+
+.anon-form input:focus,
+.anon-form textarea:focus {
+    outline: none;
+    border-color: var(--acc-hover);
+    box-shadow: 0 0 10px rgba(255,0,85,0.3);
+}
+
+.btn-terminal {
+    background-color: transparent;
+    border: 2px solid var(--acc-color);
+    color: var(--acc-color);
+    padding: 10px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: var(--transition);
+}
+.btn-terminal:hover {
+    background-color: var(--acc-color);
+    color: #000;
+    box-shadow: 0 0 15px var(--acc-color);
+}
+
+.contact-normal .contact-links p { margin-bottom: 15px; font-size: 1.1rem;}
+.contact-normal a { color: var(--text-color); text-decoration: none; transition: var(--transition); }
+.contact-normal a:hover { color: var(--acc-color); text-decoration: underline; background-color: rgba(0,255,65,0.1);}
+
+/* =========================================
+   8. Footer
+   ========================================= */
+.footer {
+    text-align: center;
+    padding: 40px;
+    margin-top: 60px;
+    transform: rotate(0.5deg);
+}
+
+/* =========================================
+   9. Animações e Responsive
+   ========================================= */
+
+/* Animação Flash (Skills) */
+@keyframes blink { 50% { opacity: 0; } }
+.flash { animation: blink 1s infinite; color: var(--acc-hover); }
+
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5rem; }
+    .header-content { flex-direction: column; gap: 10px; }
+    .nav { flex-wrap: wrap; justify-content: center; font-size: 0.8rem;}
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 20px; }
+}
